@@ -19,7 +19,5 @@ fit3<- Arima(euretail,order =c(0,1,3),seasonal = c(0,1,1))
 tsdisplay(residuals(fit3))
 Box.test(residuals(fit3),lag=16,type="Ljung")
 
-# Change plot size to 8 x 3
-options(repr.plot.width=20, repr.plot.height=6)
-
-plot(acf(euretail_timeserie))
+plot(forecast(fit3,H=12))
+auto.arima(euretail)
